@@ -1,0 +1,17 @@
+.customer-info-container {
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-bottom: 20px;
+}
+
+.cart-items-container {
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.total-price-container {
+    padding: 10px;
+    background-color: #e9e9e9;
+    margin-bottom: 20px;
+}

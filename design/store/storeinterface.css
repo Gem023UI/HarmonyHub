@@ -1,0 +1,373 @@
+/* Import Host Grotesk font */
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;600;800&display=swap');
+/* Apply Host Grotesk globally */
+body, h1, h2, h3, p, a, button, input {
+    font-family: 'Host Grotesk', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* Global styles */
+body {
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+}
+/* Headings */
+h1, h2, h3 {
+    font-weight: 800;
+}
+/* Home Section */
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 300px;
+    width: 100vw; /* Ensure full width of the viewport */
+    background-image: url('../../media/logo,background/bwbackground.jpg'); /* Replace with the actual image path */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    color: white;
+    margin-left: calc(-50vw + 50%); /* Prevent container's margin from affecting alignment */
+    margin-top: 0%;
+}
+#home h1 {
+    font-size: 6rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+#home {
+    text-align: center;
+}
+.home-text p {
+    font-size: 2rem;
+    line-height: 1.6;
+    margin-right: 40px;
+    color: white;
+}
+/* Acoustic Section */
+#acoustic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+    height: 500px;
+    width: 100vw;
+    background-image: url('../../media/logo,background/bwbackground.jpg'); /* Replace with actual background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent image repetition */
+    margin-left: calc(-50vw + 50%); /* Prevent container's margin from affecting alignment */
+    margin-top: 0%;
+}
+.acoustic-link {
+    display: flex;
+    text-decoration: white;
+    width: 100%;
+}
+.acoustic-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.acoustic-image {
+    width: 500px;
+    height: 500px;
+    border-radius: 0px;
+    margin-right: 0%;
+}
+.acoustic-text h2 {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    margin-right: 40px;
+    color: white;
+}
+.acoustic-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-right: 40px;
+    color: white;
+}
+/* Les Paul Section */
+#lespaul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    height: 500px;
+    width: 100vw;
+    background-image: url('../../media/logo,background/bwbackground.jpg'); /* Replace with actual background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent image repetition */
+    margin-left: calc(-50vw + 50%); /* Prevent container's margin from affecting alignment */
+    margin-top: 0%;
+}
+.lespaul-link {
+    display: flex;
+    text-decoration: white;
+    width: 100%;
+}
+.lespaul-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.lespaul-image {
+    width: 500px;
+    height: 500px;
+    border-radius: 0px;
+    margin-left: 0%;
+}
+.lespaul-text h2 {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    margin-left: 40px;
+    color: white;
+}
+.lespaul-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-left: 40px;
+    color: white;
+}
+/* Stratocaster Section */
+#stratocaster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+    height: 500px;
+    width: 100vw;
+    background-image: url('../../media/logo,background/bwbackground.jpg'); /* Replace with actual background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent image repetition */
+    margin-left: calc(-50vw + 50%); /* Prevent container's margin from affecting alignment */
+    margin-top: 0%;
+}
+.stratocaster-link {
+    display: flex;
+    text-decoration: white;
+    width: 100%;
+}
+.stratocaster-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.stratocaster-image {
+    width: 500px;
+    height: 500px;
+    border-radius: 0px;
+    margin-right: 0%;
+}
+.stratocaster-text h2 {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    margin-right: 40px;
+    color: white;
+}
+.stratocaster-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-right: 40px;
+    color: white;
+}
+/* Telecaster Section */
+#telecaster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    height: 500px;
+    width: 100vw;
+    background-image: url('../../media/logo,background/bwbackground.jpg'); /* Replace with actual background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent image repetition */
+    margin-left: calc(-50vw + 50%); /* Prevent container's margin from affecting alignment */
+    margin-top: 0%;
+}
+.telecaster-link {
+    display: flex;
+    text-decoration: white;
+    width: 100%;
+}
+.telecaster-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.telecaster-image {
+    width: 500px;
+    height: 500px;
+    border-radius: 0px;
+    margin-left: 0%;
+}
+.telecaster-text h2 {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    margin-left: 40px;
+    color: white;
+}
+.telecaster-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-left: 40px;
+    color: white;
+}
+/* Accessories Section */
+#accessories {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+    height: 500px;
+    width: 100vw;
+    background-image: url('../../media/logo,background/bwbackground.jpg'); /* Replace with actual background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent image repetition */
+    margin-left: calc(-50vw + 50%); /* Prevent container's margin from affecting alignment */
+    margin-top: 0%;
+}
+.accessories-link {
+    display: flex;
+    text-decoration: white;
+    width: 100%;
+}
+.accessories-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.accessories-image {
+    width: 500px;
+    height: 500px;
+    border-radius: 0px;
+    margin-right: 0%;
+}
+.accessories-text h2 {
+    font-size: 6rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    margin-right: 40px;
+    color: white;
+}
+.accessories-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-right: 40px;
+    color: white;
+}
+/* Container styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* Section styles */
+section {
+    margin-bottom: 0px;
+}
+/* Category Section */
+#category {
+    text-align: center;
+}
+.category-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Better spacing between category items */
+}
+.category-item {
+    border: 1px solid gray;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+    width: 48%; /* Two items per row */
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.category-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.category-item img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+/* Custom Section */
+#custom {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
+#custom p {
+    font-size: 1rem;
+    color: #555;
+}
+/* General Styles for Image Containers with Carousel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+    display: none;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-container:hover .carousel-btn {
+    display: block;
+}
+
+

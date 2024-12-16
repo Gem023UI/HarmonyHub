@@ -1,0 +1,240 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;700&display=swap');
+
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Host Grotesk', sans-serif;
+    height: 100%;
+}
+
+/* Background Image */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../media/logo,background/bwbackground.jpg') no-repeat center center/cover;
+    z-index: -1;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    height: 100%;
+}
+
+.container-header {
+    background-color: #071739;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5rem;
+}
+
+/* Container Label */
+.container-label {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container-label h3 {
+    color: navy;
+}
+
+/* Image Upload Container */
+.image-container {
+    width: 35%;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.image-preview {
+    width: 100%;
+    height: 360px;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.preview-image {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-text {
+    color: #ccc;
+    font-size: 1rem;
+}
+
+/* Form Container */
+.form-container {
+    width: 60%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.half-width {
+    width: 50%;
+}
+
+label.form-container {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: navy;
+}
+
+label.image-container {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: navy;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Register Button */
+.register-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: navy;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-btn:hover {
+    background-color: darkblue;
+}
+/* Modal (Floating Form) Styling */
+.update-form {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed positioning relative to the viewport */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 90%;
+    max-width: 500px;
+    overflow-y: auto; /* Ensures the content doesn't overflow and adds scrolling if necessary */
+    max-height: 90vh; /* Ensures the modal doesn't exceed the viewport */
+}
+
+.update-form.active {
+    display: block; /* Show the modal */
+}
+
+.update-form h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Adjust form styling inside the floating window */
+.update-form .form-container {
+    max-height: 80vh; /* Ensures form doesn't overflow the modal */
+    overflow-y: auto; /* Adds scroll if the content is too long */
+}
+
+/* Overlay for Background */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.modal-overlay.active {
+    display: block; /* Show the overlay */
+}
+
+/* Update form inputs and buttons */
+.form-group {
+    margin-bottom: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.update-btn, .cancel-btn {
+    padding: 10px 20px;
+    text-align: center;
+    background-color: navy;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.update-btn:hover, .cancel-btn:hover {
+    background-color: darkblue;
+}
+
+.cancel-btn {
+    background-color: #f44336; /* Red for cancel */
+}
+
+.cancel-btn:hover {
+    background-color: #d32f2f;
+}
+

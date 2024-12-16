@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;600&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Host Grotesk', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: center;
+    border: 5px solid gray;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.table img.product-thumbnail {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Button Styles */
+button {
+    background-color: #071739;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: white;
+    color:#071739;
+    border-radius: 8px #071739;
+}
+
+.editBtn, .deleteBtn {
+    background-color: #071739;
+    padding: 5px 10px;
+}
+
+.editBtn:hover, .deleteBtn:hover {
+    background-color: white;
+    color: #071739;
+    border-radius: 8px #071739;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    padding-top: 60px;
+}
+
+.modal-content {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Image Styles */
+img {
+    max-width: 50px;
+}
+
+/* Product Form Styling */
+.product-details-container label {
+    font-weight: bold;
+}
+
+.product-details-container input,
+.product-details-container textarea,
+.product-details-container select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Floating Add Product Form */
+#addProductModal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+}
+
+#addProductModal .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+}
+
+#addProductModal button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+#addProductModal button:hover {
+    background-color: #0056b3;
+}
+
+#addProductModal .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#addProductModal .close:hover,
+#addProductModal .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Floating Form - Input Fields Styling */
+#addProductModal input[type="file"],
+#addProductModal input[type="text"],
+#addProductModal input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Product Thumbnail (for product list) */
+.table img.product-thumbnail {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Edit and Delete Buttons */
+.edit-container {
+    display: flex;
+    gap: 20px;
+}
+
+.product-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-details-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

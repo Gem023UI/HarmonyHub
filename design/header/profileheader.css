@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;600&display=swap');
+
+h2 {
+    font-weight: 800;
+}
+/* Navbar styles */
+.navbar {
+  background-color: #071739; /* Navy blue background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px; /* Adjust padding to add more space inside */
+  height: 80px; /* Set explicit height to make it taller */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  font-family: 'Host Grotesk', sans-serif;
+}
+
+/* Logo */
+.logo {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+}
+
+/* Store name */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  font-family: 'Host Grotesk', sans-serif;
+}
+
+/* Search bar */
+.search-input {
+  border-radius: 20px;
+  padding: 5px 15px;
+  border: 1px solid white;
+  color: navy;
+  background-color: white;
+  width: 250px;
+}
+
+.search-btn {
+  margin-left: 10px;
+  border-radius: 50%;
+  background-color: white;
+  color: #071739;
+  border: 1px solid #071739;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.search-btn:hover {
+  background-color: #071739;
+  color: white;
+  border: 1px solid white;
+}
+
+/* Navbar icons */
+.navbar-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.nav-icon {
+  color: white;
+  border: 1px;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-icon:hover {
+  background-color: #071739;
+  color: white;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.dropdown-item:hover {
+  background-color: #071739;
+  color: white;
+  border: 1px solid white;
+}
+

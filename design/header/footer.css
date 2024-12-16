@@ -1,0 +1,31 @@
+/* Import Host Grotesk Font */
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;600&display=swap');
+
+p {
+    font-size: 0.3rem;
+    color:white;
+}
+/* Footer Styles */
+.footer {
+  background-color: #071739;; /* Navy blue background */
+  background-blend-mode: exclusion;
+  color: white; /* White text color */
+  font-family: 'Host Grotesk', sans-serif; /* Use Host Grotesk font */
+  text-align: center; /* Center-align text */
+  padding: 10px 0; /* Vertical padding */
+  line-height: 1.8; /* Space between lines */
+  position: fixed; /* Fixed at the bottom */
+  bottom: 0; /* Align to the bottom */
+  width: 100%; /* Full width of the screen */
+  z-index: 1000; /* Ensures footer is above other elements */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for visibility */
+}
+
+.footer p {
+  margin: 0; /* Remove default margins */
+  font-size: 1rem; /* Set font size */
+}
+
+.footer p:hover {
+  color: #ddd; /* Change text color to gray on hover */
+}

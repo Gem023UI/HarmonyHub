@@ -1,0 +1,104 @@
+/* Import Google Fonts for Modern Style */
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;600&display=swap');
+
+h2 {
+    font-weight: 800;
+}
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Host Grotesk', sans-serif;
+    height: 100%;
+}
+
+/* Background Image */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../media/logo,background/bwbackground.jpg') no-repeat center center/cover;
+    z-index: -1;
+}
+
+/* Login Container */
+.login-container {
+    width: 400px;
+    margin: auto;
+    margin-top: 8%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Header */
+.login-header {
+    background-color: #071739;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5rem;
+}
+
+/* Form Body */
+.login-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #071739;;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #071739;;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.7s;
+}
+
+.login-btn:hover {
+    background-color: white;
+    color: #071739;;
+
+}
+
+/* Register Link */
+.register-link {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.register-link a {
+    color: #071739;;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
