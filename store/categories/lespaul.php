@@ -58,8 +58,8 @@ if ($results && $results->num_rows > 0) {
                 </form>
 
                   <!-- Button to View Reviews -->
-                  <div class="view-reviews-container">
-                    <a href="view_reviews.php?product_id={$product_id}" class="view-reviews-button">View Reviews</a>
+                <div class="view-reviews-container">
+                    <a href="../../orders/viewreviews.php?product_id={$product_id}" class="view-reviews-button">View Reviews</a>
                 </div>
                 
             </div>

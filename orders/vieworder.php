@@ -2,7 +2,7 @@
 ob_start(); // Start output buffering
 session_start();
 include('../style/storeheader.php');
-include('../style/config.php');  // Include the database connection
+include('../user/config.php');  // Include the database connection
 
 // Function to insert a review into the reviews table
 function addReview($conn, $orderinfo_id, $customer_id, $product_id, $review_text, $rating) {
@@ -86,7 +86,7 @@ if ($order_result->num_rows > 0) {
         $orderinfo_id = (int)$_POST['orderinfo_id'];
 
         if (addReview($conn, $orderinfo_id, $customer_id, $product_id, $review_text, $rating)) {
-            header("Location: ../store/categories/view_reviews.php?product_id=" . $product_id);
+            header("Location: ../orders/viewreviews.php?product_id=" . $product_id);
             exit();
         } else {
             echo "<p>There was an error submitting your review. Please try again later.</p>";

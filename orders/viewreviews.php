@@ -1,8 +1,7 @@
 <?php
 session_start();
-
-include('../../style/categoryheader.php');
-include('../../style/config.php');
+include('../style/categoryheader.php');
+include('../user/config.php');
 
 // Check if the user is logged in
 if (!isset($_SESSION['customer_id'])) {

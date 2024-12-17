@@ -56,9 +56,10 @@ if ($results && $results->num_rows > 0) {
                         <button type="submit" name="add_to_cart" class="add-to-cart-button">ADD TO CART</button>
                     </div>
                 </form>
-                      <!-- Button to View Reviews -->
-                                <div class="view-reviews-container">
-                    <a href="view_reviews.php?product_id={$product_id}" class="view-reviews-button">View Reviews</a>
+
+                <!-- Button to View Reviews -->
+                <div class="view-reviews-container">
+                    <a href="../../orders/viewreviews.php?product_id={$product_id}" class="view-reviews-button">View Reviews</a>
                 </div>
             </div>
         </div>
