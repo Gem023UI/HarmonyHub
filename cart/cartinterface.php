@@ -13,35 +13,6 @@
     $cart_items = $stmt->get_result();
     $stmt->close();
 
-
-    // Fetch items in the same category for editing
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_cart'])) {
-        $cart_id = intval($_POST['cart_id']);
-
-        // Fetch the current item details
-        $stmt = $conn->prepare("SELECT c.cart_id, c.product_id, c.quantity, c.description, p.price, p.product_image, p.category_id
-                                FROM cart c 
-                                JOIN product p ON c.product_id = p.product_id 
-                                WHERE c.cart_id = ?
-        ");
-        $stmt->bind_param("i", $cart_id);
-        $stmt->execute();
-        $current_item = $stmt->get_result()->fetch_assoc();
-        $stmt->close();
-
-        // Fetch items in the same category
-        if ($current_item) {
-            $category_id = intval($current_item['category_id']);
-            $stmt = $conn->prepare("SELECT product_id, description, price, product_image 
-                                    FROM product 
-                                    WHERE category_id = ? AND product_id != ?");
-            $stmt->bind_param("ii", $category_id, $current_item['product_id']);
-            $stmt->execute();
-            $same_category_items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-            $stmt->close();
-        }
-    }
-
     $conn->close();
     ?>
 
@@ -91,10 +62,6 @@
                                 </div>
                             </td>
                             <td>
-                                <form method="POST" style="display:inline;">
-                                    <input type="hidden" name="cart_id" value="<?php echo $item['cart_id']; ?>">
-                                    <button type="submit" name="edit_cart" class="edit-cart-btn">EDIT</button>
-                                </form>
                                 <form method="POST" action="deletecart.php" style="display:inline;">
                                     <input type="hidden" name="cart_id" value="<?php echo $item['cart_id']; ?>">
                                     <button type="submit" name="delete_cart">DELETE</button>
