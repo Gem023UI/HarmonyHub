@@ -25,48 +25,58 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $category_id);
 $stmt->execute();
 $results = $stmt->get_result();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="../../design/store/categories.css?v=<?php echo time(); ?>"> 
+</head>
+<body>
+    <?php
+    if ($results && $results->num_rows > 0) {
+        echo '<div class="product-container">';
+        while ($row = $results->fetch_assoc()) {
+            $product_id = $row['product_id'];
+            $description = htmlspecialchars($row['description']);
+            $price = number_format($row['price'], 2);
+            $product_image = !empty($row['product_image']) ? "../../media/products/" . basename($row['product_image']) : '../../media/products/default.png';
 
-// Link the external CSS file
-echo '<link rel="stylesheet" href="../../design/store/categories.css">';
-
-if ($results && $results->num_rows > 0) {
-    echo '<div class="product-container">';
-    while ($row = $results->fetch_assoc()) {
-        $product_id = $row['product_id'];
-        $description = htmlspecialchars($row['description']);
-        $price = number_format($row['price'], 2);
-        $product_image = !empty($row['product_image']) ? "../../media/products/" . basename($row['product_image']) : '../../media/products/default.png';
-
-        echo <<<HTML
-        <div class="product-item">
-            <div class="product-thumb">
-                <img src="{$product_image}" alt="Product Image" class="product-image">
-            </div>
-            <div class="product-details">
-                <h4>{$description}</h4>
-                <p class="price">PHP {$price}</p>
-                <form method="POST" action="../../cart/addtocart.php">
-                    <input type="hidden" name="product_id" value="{$product_id}">
-                    <input type="hidden" name="description" value="{$description}">
-                    <input type="hidden" name="price" value="{$price}">
-                    <input type="hidden" name="product_image" value="{$product_image}">
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" name="quantity" id="quantity" value="1" min="1" required>
-                    <div class="add-to-cart-container">
-                        <button type="submit" name="add_to_cart" class="add-to-cart-button">ADD TO CART</button>
+            echo <<<HTML
+            <div class="product-item">
+                <div class="product-thumb">
+                    <img src="{$product_image}" alt="Product Image" class="product-image">
+                </div>
+                <div class="product-details">
+                    <h4>{$description}</h4>
+                    <p class="price">PHP {$price}</p>
+                    <form method="POST" action="../../cart/addtocart.php">
+                        <input type="hidden" name="product_id" value="{$product_id}">
+                        <input type="hidden" name="description" value="{$description}">
+                        <input type="hidden" name="price" value="{$price}">
+                        <input type="hidden" name="product_image" value="{$product_image}">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+                        <div class="add-to-cart-container">
+                            <button type="submit" name="add_to_cart" class="add-to-cart-button">ADD TO CART</button>
+                        </div>
+                    </form>
+                    <div class="view-reviews-container">
+                        <button class="view-reviews-button">
+                            <a href="../../orders/viewreviews.php?product_id={$product_id}" class="view-reviews-link">VIEW REVIEWS</a>
+                        </button>
                     </div>
-                </form>
-
-                <!-- Button to View Reviews -->
-                <div class="view-reviews-container">
-                    <a href="../../orders/viewreviews.php?product_id={$product_id}" class="view-reviews-button">View Reviews</a>
                 </div>
             </div>
-        </div>
 HTML;
+        }
+        echo '</div>';
+    } else {
+        echo '<p>No products found for this category.</p>';
     }
-    echo '</div>';
-} else {
-    echo '<p>No products found for this category.</p>';
-}
-?>
+    ?>
+</body>
+</html>
