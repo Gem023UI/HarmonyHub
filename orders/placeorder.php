@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('../style/orderheader.php');
 include('../user/config.php'); // Include database connection
 
 // Function to fetch customer details
@@ -33,9 +34,13 @@ if (!isset($_SESSION['customer_id'])) {
 $customer_id = $_SESSION['customer_id'];
 $customer_info = getCustomerDetails($conn, $customer_id);
 
+// Initialize variables for order confirmation
+$orderinfo_id = null;
+$total_price = 0;
+$order_success = false;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cart_ids'])) {
     $cart_ids = explode(',', $_POST['cart_ids']);
-    $total_price = 0;
 
     // Insert into orderinfo
     $query = "INSERT INTO orderinfo (customer_id, date_placed, status_id) VALUES (?, NOW(), 1)";
@@ -60,19 +65,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cart_ids'])) {
         }
     }
 
-    echo "
-    <div style='font-family: Arial, sans-serif; background-color: #f0f8ff; padding: 20px; border-radius: 8px; width: 80%; margin: 0 auto;'>
-        <h2 style='color: #4CAF50;'>Order Placed Successfully!</h2>
-        <p style='font-size: 16px;'>Your order has been placed for <strong>" . count($cart_ids) . "</strong> item(s).</p>
-        <p style='font-size: 16px;'>Total Price: <strong>₱" . number_format($total_price, 2) . "</strong></p>
-        <p style='font-size: 16px;'>Thank you for shopping with us!</p>
-        <a href='../orders/vieworder.php?orderinfo_id=$orderinfo_id' style='background-color: #4CAF50; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;'>View Your Order</a>
-    </div>";
+    // Mark the order as successful
+    $order_success = true;
 
     // Update cart items' checkbox to unchecked
     $stmt = $conn->prepare("UPDATE cart SET checkbox = 0 WHERE cart_id IN (" . implode(',', array_fill(0, count($cart_ids), '?')) . ")");
     $stmt->bind_param(str_repeat('i', count($cart_ids)), ...$cart_ids);
     $stmt->execute();
 }
+
 $conn->close();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="../style.css"> <!-- Assuming you have a common stylesheet -->
+    <link rel="stylesheet" href="../design/store/orderinterface.css">  <!-- Link to the new CSS file -->
+</head>
+<body>
+    <!-- Your other HTML content, such as header, menu, etc. -->
+
+    <?php if ($order_success): ?>
+        <div class="order-confirmation">
+            <h2>Order Placed Successfully!</h2>
+            <p>Your order has been placed for <strong><?php echo count($cart_ids); ?></strong> item(s).</p>
+            <p>Total Price: <strong>₱<?php echo number_format($total_price, 2); ?></strong></p>
+            <p>Thank you for shopping with us!</p>
+            <a href="../orders/orderinterface.php?orderinfo_id=<?php echo $orderinfo_id; ?>">View Order History</a>
+        </div>
+    <?php endif; ?>
+
+    <!-- Your other HTML content, such as footer, etc. -->
+
+</body>
+</html>

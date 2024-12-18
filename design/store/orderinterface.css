@@ -60,3 +60,46 @@ h2 {
         font-size: 18px;
     }
 }
+
+/* General styling for the order confirmation container */
+.order-confirmation {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Styling for the order confirmation header */
+.order-confirmation h2 {
+    color: #4CAF50;
+}
+
+/* Styling for the order summary text */
+.order-confirmation p {
+    font-size: 16px;
+}
+
+/* Styling for the "View Your Order" button */
+.order-confirmation a {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.order-item, .product-item {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-item p, .product-item p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
