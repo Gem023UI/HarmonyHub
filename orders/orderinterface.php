@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../style/storeheader.php');
+include('../style/orderheader.php');
 include('../user/config.php');
 
 // Function to fetch all orders

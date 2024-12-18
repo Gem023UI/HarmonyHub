@@ -1,7 +1,7 @@
 <?php
 ob_start(); // Start output buffering
 session_start();
-include('../style/storeheader.php');
+include('../style/orderheader.php');
 include('../user/config.php');  // Include the database connection
 
 // Function to insert a review into the reviews table
