@@ -86,7 +86,7 @@ if ($order_result->num_rows > 0) {
         $orderinfo_id = (int)$_POST['orderinfo_id'];
 
         if (addReview($conn, $orderinfo_id, $customer_id, $product_id, $review_text, $rating)) {
-            header("Location: ../orders/viewreviews.php?product_id=" . $product_id);
+            header("Location: ../reviews/viewreviews.php?product_id=" . $product_id);
             exit();
         } else {
             echo "<p>There was an error submitting your review. Please try again later.</p>";

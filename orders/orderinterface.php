@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../style/storeheader.php');
-include('../style/config.php');
+include('../user/config.php');
 
 // Function to fetch all orders
 function getAllOrders($conn) {
@@ -64,7 +64,7 @@ if (empty($order_history)) {
             <p><strong>Quantity:</strong> " . $order['quantity'] . "</p>
             <p><strong>Price:</strong> ₱" . number_format($order['price'], 2) . "</p>
             <p><strong>Status:</strong> " . htmlspecialchars($order['status']) . "</p>
-            <a class='view-order-btn' href='view_order.php?orderinfo_id=" . $order['order_id'] . "'>View Order Details</a>
+            <a class='view-order-btn' href='vieworder.php?orderinfo_id=" . $order['order_id'] . "'>View Order Details</a>
         </div>";
     }
 }
