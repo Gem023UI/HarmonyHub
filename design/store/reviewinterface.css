@@ -53,3 +53,17 @@ h3 {
 .review strong {
     color: #2c3e50;
 }
+
+.insert-review-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.insert-review-btn:hover {
+    background-color: #0056b3;
+}

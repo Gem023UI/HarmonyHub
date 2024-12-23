@@ -1,5 +1,4 @@
 <?php
-ob_start(); // Start output buffering
 session_start();
 include('../style/orderheader.php');
 include('../user/config.php');  // Include the database connection

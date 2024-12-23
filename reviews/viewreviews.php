@@ -74,9 +74,15 @@ $conn->close();
         <div class="product-info">
             <img src="<?php echo $product_image; ?>" alt="Product Image" class="product-image">
             <h2><?php echo $product_description; ?></h2>
-        </div>
-        <h3>Reviews</h3>
 
+            <!-- Insert Review Button -->
+            <form action="addreview.php" method="post">
+                <input type="hidden" name="prod_id" value="<?php echo $product_id; ?>">
+                <button type="submit" class="insert-review-btn">Insert Review</button>
+            </form>
+        </div>
+
+        <h3>Reviews</h3>
         <?php if (!empty($reviews)): ?>
             <?php foreach ($reviews as $review): ?>
                 <div class="review">
