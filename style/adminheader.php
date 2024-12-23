@@ -37,7 +37,7 @@
           <a href="../../cart/cartinterface.php" class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="order-icon">
-          <a href="../orders/order_history.php" class="nav-icon"><i class="fa-solid fa-business-time"></i></a>
+          <a href="../../orders/orderinterface.php" class="nav-icon"><i class="fa-solid fa-business-time"></i></a>
         </div>
         <!-- Assuming you have a session or a variable that stores the logged-in user's customer_id -->
         <div class="user-icon">

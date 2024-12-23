@@ -1,6 +1,6 @@
 <?php
 include("../../style/adminheader.php");
-include("../../style/config.php"); // Include your database configuration
+include("../../user/config.php"); // Include your database configuration
 
 session_start(); // Ensure session is started
 

@@ -86,6 +86,14 @@ $conn->close();
             </div>
             <?php endforeach; ?>
         </div>
+
+        <?php if ($order_details['status_description'] === 'received'): ?>
+            <div class="action-button">
+                <button onclick="location.href='../reviews/viewreviews.php?orderinfo_id=<?php echo $orderinfo_id; ?>'">
+                    ADD REVIEW
+                </button>
+            </div>
+        <?php endif; ?>
     </div>
 </body>
 </html>
