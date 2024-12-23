@@ -11,7 +11,12 @@ if (!isset($_SESSION['customer_id'])) {
 }
 
 // Get product ID from the URL
-$product_id = isset($_GET['product_id']) ? intval($_GET['product_id']) : 0;
+$product_id = isset($_GET['prod_id']) ? intval($_GET['prod_id']) : 0;
+
+if ($product_id === 0) {
+    echo "<p>Invalid product ID.</p>";
+    exit();
+}
 
 // Fetch product details
 $product_query = "SELECT p.product_id, p.description, p.product_image 
@@ -24,7 +29,7 @@ $product_result = $product_stmt->get_result();
 if ($product_result->num_rows > 0) {
     $product = $product_result->fetch_assoc();
     $product_description = htmlspecialchars($product['description']);
-    $product_image = !empty($product['product_image']) ? "../../media/products/" . basename($product['product_image']) : '../../media/products/default.png';
+    $product_image = !empty($product['product_image']) ? "../media/products/" . basename($product['product_image']) : '../../media/products/default.png';
 } else {
     echo "<p>Product not found.</p>";
     exit();
@@ -41,33 +46,17 @@ $review_stmt->bind_param("i", $product_id);
 $review_stmt->execute();
 $reviews_result = $review_stmt->get_result();
 
-// Link the external CSS file
-echo '<link rel="stylesheet" href="../../design/store/view_reviews.css">';
-
-echo "<div class='product-details-container'>
-        <div class='product-info'>
-            <img src='{$product_image}' alt='Product Image' class='product-image'>
-            <h2>{$product_description}</h2>
-        </div>
-        <h3>Reviews</h3>";
-
+$reviews = [];
 if ($reviews_result && $reviews_result->num_rows > 0) {
     while ($review = $reviews_result->fetch_assoc()) {
-        $review_text = htmlspecialchars($review['review_text']);
-        $rating = $review['rating'];
-        $created_at = date('F j, Y', strtotime($review['created_at']));
-        $customer_name = htmlspecialchars($review['firstname']) . ' ' . htmlspecialchars($review['lastname']);
-
-        echo "<div class='review'>
-                <p><strong>{$customer_name}</strong> ({$created_at}) - Rating: {$rating}/5</p>
-                <p>{$review_text}</p>
-              </div>";
+        $reviews[] = [
+            'text' => htmlspecialchars($review['review_text']),
+            'rating' => $review['rating'],
+            'date' => date('F j, Y', strtotime($review['created_at'])),
+            'customer' => htmlspecialchars($review['firstname']) . ' ' . htmlspecialchars($review['lastname']),
+        ];
     }
-} else {
-    echo "<p>No reviews yet for this product.</p>";
 }
-
-echo "</div>";
 
 $conn->close();
 ?>
@@ -78,53 +67,26 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Reviews</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        .product-details-container {
-            margin: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .product-info img {
-            width: 150px;
-            height: auto;
-            margin-right: 20px;
-        }
-
-        .product-info h2 {
-            margin: 0;
-        }
-
-        .review {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .review p {
-            margin: 5px 0;
-        }
-
-        .review strong {
-            color: #2c3e50;
-        }
-    </style>
+    <link rel="stylesheet" href="../design/store/reviewinterface.css">
 </head>
 <body>
+    <div class="product-details-container">
+        <div class="product-info">
+            <img src="<?php echo $product_image; ?>" alt="Product Image" class="product-image">
+            <h2><?php echo $product_description; ?></h2>
+        </div>
+        <h3>Reviews</h3>
+
+        <?php if (!empty($reviews)): ?>
+            <?php foreach ($reviews as $review): ?>
+                <div class="review">
+                    <p><strong><?php echo $review['customer']; ?></strong> (<?php echo $review['date']; ?>) - Rating: <?php echo $review['rating']; ?>/5</p>
+                    <p><?php echo $review['text']; ?></p>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No reviews yet for this product.</p>
+        <?php endif; ?>
+    </div>
 </body>
 </html>

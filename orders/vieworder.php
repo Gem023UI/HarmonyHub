@@ -54,7 +54,6 @@ while ($item = $product_result->fetch_assoc()) {
 $conn->close();
 ?>
 
-<!-- HTML Body -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,32 +67,27 @@ $conn->close();
         <div class="order-item">
             <p><strong>Order ID:</strong> <?php echo htmlspecialchars($order_details['orderinfo_id']); ?></p>
             <p><strong>Order Date:</strong> <?php echo htmlspecialchars($order_details['date_placed']); ?></p>
-            <p><strong>Status:</strong> <?php echo htmlspecialchars($order_details['status_description']); ?></p> <!-- Now showing status description -->
+            <p><strong>Status:</strong> <?php echo htmlspecialchars($order_details['status_description']); ?></p>
         </div>
 
         <div class="product-list">
-            <?php
-            $total_price = 0; // Initialize total price
-            foreach ($product_details as $item):
-                $product_total = $item['price'] * $item['quantity']; // Calculate total for this product
-                $total_price += $product_total; // Add to the total price
-            ?>
-            <div class="product-item">
-                <p><strong>Product Description:</strong> <?php echo htmlspecialchars($item['description']); ?></p>
-                <p><strong>Quantity:</strong> <?php echo htmlspecialchars($item['quantity']); ?></p>
-                <p><strong>Unit Price:</strong> $<?php echo number_format($item['price'], 2); ?></p>
-                <p><strong>Total Price:</strong> $<?php echo number_format($product_total, 2); ?></p>
-            </div>
+            <?php foreach ($product_details as $item): ?>
+                <div class="product-item">
+                    <p><strong>Product Description:</strong> <?php echo htmlspecialchars($item['description']); ?></p>
+                    <p><strong>Quantity:</strong> <?php echo htmlspecialchars($item['quantity']); ?></p>
+                    <p><strong>Unit Price:</strong> $<?php echo number_format($item['price'], 2); ?></p>
+                    <p><strong>Total Price:</strong> $<?php echo number_format($item['quantity'] * $item['price'], 2); ?></p>
+
+                    <?php if ($order_details['status_description'] === 'received'): ?>
+                        <div class="action-button">
+                            <button onclick="location.href='../reviews/viewreviews.php?prod_id=<?php echo $item['prod_id']; ?>'">
+                                ADD REVIEW
+                            </button>
+                        </div>
+                    <?php endif; ?>
+                </div>
             <?php endforeach; ?>
         </div>
-
-        <?php if ($order_details['status_description'] === 'received'): ?>
-            <div class="action-button">
-                <button onclick="location.href='../reviews/viewreviews.php?orderinfo_id=<?php echo $orderinfo_id; ?>'">
-                    ADD REVIEW
-                </button>
-            </div>
-        <?php endif; ?>
     </div>
 </body>
 </html>
