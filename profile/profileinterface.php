@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../style/profileheader.php");
-include("../style/config.php");
+include("../user/config.php");
 
 // Check if user is logged in and has a valid customer_id
 if (!isset($_SESSION['customer_id'])) {
