@@ -78,6 +78,7 @@ $conn->close();
             <!-- Insert Review Button -->
             <form action="addreview.php" method="post">
                 <input type="hidden" name="prod_id" value="<?php echo $product_id; ?>">
+                <input type="hidden" name="orderinfo_id" value="<?php echo $orderinfo_id; ?>">  <!-- Make sure this is passed -->
                 <button type="submit" class="insert-review-btn">Insert Review</button>
             </form>
         </div>
