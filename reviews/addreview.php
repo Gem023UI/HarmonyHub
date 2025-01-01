@@ -56,8 +56,9 @@ $conn->close();
 <body>
     <div class="review-form-container">
         <h2>Submit Your Review</h2>
-        <form action="insertreview.php" method="post">
+        <form action="../reviews/insertreview.php" method="post">
             <input type="hidden" name="prod_id" value="<?php echo $product_id; ?>">
+            <input type="hidden" name="orderinfo_id" value="<?php echo $orderinfo_id; ?>">
             <label for="rating">Rating (1-5):</label>
             <input type="number" id="rating" name="rating" min="1" max="5" required>
             <label for="review_text">Your Review:</label>
