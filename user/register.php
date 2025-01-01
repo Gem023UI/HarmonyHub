@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../style/loginheader.php");
-include("../style/config.php");
+include("../user/config.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Account creation fields
@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="container-label">
                 <h3>Create Account</h3>
             </div>
-            <?php include("../style/alert.php"); ?>
+            <?php include("../user/alert.php"); ?>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
             <!-- Profile Picture -->
             <div class="form-group">

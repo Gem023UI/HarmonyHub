@@ -35,11 +35,11 @@ $role_id = $_SESSION['role_id']; // Retrieve role_id from the session
             Categories
           </a>
           <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
-            <li><a class="dropdown-item" href="/SYSTEM/store/categories/acoustic.php">Acoustic</a></li>
-            <li><a class="dropdown-item" href="/SYSTEM/store/categories/lespaul.php">Les Paul</a></li>
-            <li><a class="dropdown-item" href="/SYSTEM/store/categories/stratocaster.php">Stratocaster</a></li>
-            <li><a class="dropdown-item" href="/SYSTEM/store/categories/telecaster.php">Telecaster</a></li>
-            <li><a class="dropdown-item" href="/SYSTEM/store/categories/accessories.php">Accessories</a></li>
+            <li><a class="dropdown-item" href="/harmonyhub/store/categories/acoustic.php">Acoustic</a></li>
+            <li><a class="dropdown-item" href="/harmonyhub/store/categories/lespaul.php">Les Paul</a></li>
+            <li><a class="dropdown-item" href="/harmonyhub/store/categories/stratocaster.php">Stratocaster</a></li>
+            <li><a class="dropdown-item" href="/harmonyhub/store/categories/telecaster.php">Telecaster</a></li>
+            <li><a class="dropdown-item" href="/harmonyhub/store/categories/accessories.php">Accessories</a></li>
           </ul>
         </div>
       </div>
